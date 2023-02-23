@@ -10,4 +10,4 @@ export type IPush<GPType> = ($: T.Type<GPType>, ) => void
 
 export type FBuildArray = <GPType>($: mcommon.T.Null, $c: ($i: IPush<GPType>) => void,) => T.Array<GPType>
 
-export type FBuildDictionary = <GPType>($: mcommon.T.Null, $c: ($i: IAdd<GPType>) => void,) => T.Dictionary<GPType>
+export type FUnsafeBuildDictionary = <GPType>($: mcommon.T.Null, $c: ($i: IAdd<GPType>) => void,) => T.Dictionary<GPType>

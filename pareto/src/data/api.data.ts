@@ -40,7 +40,7 @@ export const $: gmoduleDefinition.T.ModuleDefinition<pd.SourceLocation> = {
         }),
         'functions': d({
             "BuildArray": func(typeReference("common", "Null"), interfaceReference("Push"), null, data(typeReference("Array"), false)),
-            "BuildDictionary": func(typeReference("common", "Null"), interfaceReference("Add"), null, data(typeReference("Dictionary"), false)),
+            "UnsafeBuildDictionary": func(typeReference("common", "Null"), interfaceReference("Add"), null, data(typeReference("Dictionary"), false)),
         }),
     },
     'api': {
@@ -48,7 +48,7 @@ export const $: gmoduleDefinition.T.ModuleDefinition<pd.SourceLocation> = {
         }),
         'algorithms': d({
             "buildArray": algorithm(definitionReference("BuildArray")),
-            "buildDictionary": algorithm(definitionReference("BuildDictionary")),
+            "unsafeBuildDictionary": algorithm(definitionReference("UnsafeBuildDictionary")),
         })
     },
 }
