@@ -18,6 +18,21 @@ export namespace T {
     
     export type Dictionary<GPType> = pt.Dictionary<GPType>
     
+    export namespace DictionaryBuildStrategy {
+        
+        export namespace ignore {}
+        
+        export type ignore<GPType> = {}
+        
+        export namespace overwrite {}
+        
+        export type overwrite<GPType> = {}
+    }
+    
+    export type DictionaryBuildStrategy<GPType> = 
+        | ['ignore', {}]
+        | ['overwrite', {}]
+    
     export namespace KeyValuePair {
         
         export type key<GPType> = string

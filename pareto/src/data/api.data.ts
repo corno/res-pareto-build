@@ -33,14 +33,20 @@ export const $: gmoduleDefinition.T.ModuleDefinition<pd.SourceLocation> = {
                 "value": member(glossaryParameter("Type")),
             })),
             "Type": type(glossaryParameter("Type")),
+            "DictionaryBuildStrategy": type(taggedUnion({
+                "ignore": group({}),
+                "overwrite": group({}),
+            }))
         }),
         'interfaces': d({
-            "Push": method(typeReference("Type")),
             "Add": method(typeReference("KeyValuePair")),
+            "Push": method(typeReference("Type")),
+            "OnDuplicate": method(typeReference("common", "String")),
         }),
         'functions': d({
             "BuildArray": func(typeReference("common", "Null"), interfaceReference("Push"), null, data(typeReference("Array"), false)),
             "UnsafeBuildDictionary": func(typeReference("common", "Null"), interfaceReference("Add"), null, data(typeReference("Dictionary"), false)),
+            "BuildDictionary": func(typeReference("DictionaryBuildStrategy"), interfaceReference("Add"), interfaceReference("OnDuplicate"), data(typeReference("Dictionary"), false)),
         }),
     },
     'api': {
@@ -49,6 +55,7 @@ export const $: gmoduleDefinition.T.ModuleDefinition<pd.SourceLocation> = {
         'algorithms': d({
             "buildArray": algorithm(definitionReference("BuildArray")),
             "unsafeBuildDictionary": algorithm(definitionReference("UnsafeBuildDictionary")),
+            "buildDictionary": algorithm(definitionReference("BuildDictionary")),
         })
     },
 }
