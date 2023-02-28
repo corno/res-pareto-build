@@ -1,13 +1,12 @@
 import * as pt from 'pareto-core-types'
 
-import * as gglo from "./glossary"
+import * as gthis from "./glossary"
 
+export type CbuildArray = gthis.FBuildArray
 
-export type CbuildArray = gglo.FBuildArray
+export type CbuildDictionary = gthis.FBuildDictionary
 
-export type CbuildDictionary = gglo.FBuildDictionary
-
-export type CunsafeBuildDictionary = gglo.FUnsafeBuildDictionary
+export type CunsafeBuildDictionary = gthis.FUnsafeBuildDictionary
 
 export type API = {
     buildArray: CbuildArray
