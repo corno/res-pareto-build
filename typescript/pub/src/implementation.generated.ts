@@ -1,4 +1,4 @@
-import { API } from "./api"
+import { API } from "./definition/api.generated"
 import { $$ as ibuildArray } from "./implementations/buildArray.native"
 import { $$ as ibuildDictionary } from "./implementations/buildDictionary.native"
 import { $$ as iunsafeBuildDictionary } from "./implementations/unsafeBuildDictionary.native"
