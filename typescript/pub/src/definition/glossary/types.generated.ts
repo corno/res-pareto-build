@@ -22,16 +22,16 @@ export namespace T {
         
         export namespace ignore {}
         
-        export type ignore<GPType> = {}
+        export type ignore<GPType> = null
         
         export namespace overwrite {}
         
-        export type overwrite<GPType> = {}
+        export type overwrite<GPType> = null
     }
     
     export type DictionaryBuildStrategy<GPType> = 
-        | ['ignore', {}]
-        | ['overwrite', {}]
+        | ['ignore', null]
+        | ['overwrite', null]
     
     export namespace KeyValuePair {
         

@@ -3,7 +3,7 @@ import { $$ as ibuildArray } from "./implementations/buildArray.native"
 import { $$ as ibuildDictionary } from "./implementations/buildDictionary.native"
 import { $$ as iunsafeBuildDictionary } from "./implementations/unsafeBuildDictionary.native"
 
-export const $a: API = {
+export const $r: API = {
     'buildArray': ibuildArray,
     'buildDictionary': ibuildDictionary,
     'unsafeBuildDictionary': iunsafeBuildDictionary,
