@@ -2,9 +2,9 @@ import * as pi from 'pareto-core-internals'
 
 import * as gapi from "../definition/glossary"
 
-import { CbuildDictionary } from "../definition/api.generated"
+import { buildDictionary } from "../definition/api.generated"
 
-export const $$: CbuildDictionary = <T>($: gapi.T.DictionaryBuildStrategy<T>, $c: ($i: gapi.IAdd<T>) => void, $i: gapi.IOnDuplicate<T>) => {
+export const $$: buildDictionary = <T>($: gapi.T.DictionaryBuildStrategy<T>, $c: ($i: gapi.B.Add<T>) => void, $i: gapi.B.OnDuplicate<T>) => {
     const dbs = $
     const out: { [key: string]: T } = {}
     $c(($) => {

@@ -1,17 +1,25 @@
 import * as pt from 'pareto-core-types'
 
-import { T   } from './types.generated'
+import { T } from './types.generated'
 
-import * as gcommon from "glo-pareto-common"
+import * as g_common from "glo-pareto-common"
 
-export type IAdd<GPType> = ($: T.KeyValuePair<GPType>, ) => void
+export namespace I {}
 
-export type IOnDuplicate<GPType> = ($: gcommon.T.String, ) => void
+export namespace B {
+    
+    export type Add<GType> = ($: T.KeyValuePair<GType>, ) => void
+    
+    export type OnDuplicate<GType> = ($: g_common.T.String, ) => void
+    
+    export type Push<GType> = ($: T.Type<GType>, ) => void
+}
 
-export type IPush<GPType> = ($: T.Type<GPType>, ) => void
-
-export type FBuildArray = <GPType>($: gcommon.T.Null, $c: ($i: IPush<GPType>) => void,) => T.Array<GPType>
-
-export type FBuildDictionary = <GPType>($: T.DictionaryBuildStrategy<GPType>, $c: ($i: IAdd<GPType>) => void, $i: IOnDuplicate<GPType>,) => T.Dictionary<GPType>
-
-export type FUnsafeBuildDictionary = <GPType>($: gcommon.T.Null, $c: ($i: IAdd<GPType>) => void,) => T.Dictionary<GPType>
+export namespace F {
+    
+    export type BuildArray = <GType>($: g_common.T.Null, $c: ($b: B.Push<GType>) => void,) => T.Array<GType>
+    
+    export type BuildDictionary = <GType>($: T.DictionaryBuildStrategy<GType>, $c: ($b: B.Add<GType>) => void, $b: B.OnDuplicate<GType>,) => T.Dictionary<GType>
+    
+    export type UnsafeBuildDictionary = <GType>($: g_common.T.Null, $c: ($b: B.Add<GType>) => void,) => T.Dictionary<GType>
+}

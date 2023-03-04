@@ -1,49 +1,49 @@
 import * as pt from 'pareto-core-types'
 
-import * as gcommon from "glo-pareto-common"
+import * as g_common from "glo-pareto-common"
 
 export namespace T {
     
     export namespace Array {
         
-        export type A<GPType> = GPType
+        export type T<GType> = GType
     }
     
-    export type Array<GPType> = pt.Array<GPType>
+    export type Array<GType> = pt.Array<GType>
     
     export namespace Dictionary {
         
-        export type D<GPType> = GPType
+        export type D<GType> = GType
     }
     
-    export type Dictionary<GPType> = pt.Dictionary<GPType>
+    export type Dictionary<GType> = pt.Dictionary<GType>
     
     export namespace DictionaryBuildStrategy {
         
         export namespace ignore {}
         
-        export type ignore<GPType> = null
+        export type ignore<GType> = null
         
         export namespace overwrite {}
         
-        export type overwrite<GPType> = null
+        export type overwrite<GType> = null
     }
     
-    export type DictionaryBuildStrategy<GPType> = 
+    export type DictionaryBuildStrategy<GType> = 
         | ['ignore', null]
         | ['overwrite', null]
     
     export namespace KeyValuePair {
         
-        export type key<GPType> = string
+        export type key<GType> = string
         
-        export type value<GPType> = GPType
+        export type value<GType> = GType
     }
     
-    export type KeyValuePair<GPType> = {
+    export type KeyValuePair<GType> = {
         readonly 'key': string
-        readonly 'value': GPType
+        readonly 'value': GType
     }
     
-    export type Type<GPType> = GPType
+    export type Type<GType> = GType
 }

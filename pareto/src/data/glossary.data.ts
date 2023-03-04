@@ -13,8 +13,8 @@ import {
     optional,
     reference,
     glossaryParameter,
-    method,
-    interfaceReference,
+    builderMethod,
+    builderReference,
     number,
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
@@ -38,14 +38,16 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
             "overwrite": group({}),
         }))
     }),
+    'builders': d({
+        "Add": builderMethod(typeReference("KeyValuePair")),
+        "Push": builderMethod(typeReference("Type")),
+        "OnDuplicate": builderMethod(typeReference("common", "String")),
+    }),
     'interfaces': d({
-        "Add": method(typeReference("KeyValuePair")),
-        "Push": method(typeReference("Type")),
-        "OnDuplicate": method(typeReference("common", "String")),
     }),
     'functions': d({
-        "BuildArray": func(typeReference("common", "Null"), interfaceReference("Push"), null, data(typeReference("Array"), false)),
-        "UnsafeBuildDictionary": func(typeReference("common", "Null"), interfaceReference("Add"), null, data(typeReference("Dictionary"), false)),
-        "BuildDictionary": func(typeReference("DictionaryBuildStrategy"), interfaceReference("Add"), interfaceReference("OnDuplicate"), data(typeReference("Dictionary"), false)),
+        "BuildArray": func(typeReference("common", "Null"), builderReference("Push"), null, data(typeReference("Array"), false)),
+        "UnsafeBuildDictionary": func(typeReference("common", "Null"), builderReference("Add"), null, data(typeReference("Dictionary"), false)),
+        "BuildDictionary": func(typeReference("DictionaryBuildStrategy"), builderReference("Add"), builderReference("OnDuplicate"), data(typeReference("Dictionary"), false)),
     }),
 }
