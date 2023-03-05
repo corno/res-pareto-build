@@ -10,5 +10,5 @@ export const $: gapi.T.API<pd.SourceLocation> ={
         "buildArray": algorithm(functionReference("this", {}, "BuildArray")),
         "unsafeBuildDictionary": algorithm(functionReference("this", {}, "UnsafeBuildDictionary")),
         "buildDictionary": algorithm(functionReference("this", {}, "BuildDictionary")),
-    })
+    }),
 }

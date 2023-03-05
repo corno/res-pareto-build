@@ -6,7 +6,7 @@ export namespace T {
     
     export namespace Array {
         
-        export type T<GType> = GType
+        export type A<GType> = GType
     }
     
     export type Array<GType> = pt.Array<GType>

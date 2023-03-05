@@ -36,7 +36,7 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
         "DictionaryBuildStrategy": type(taggedUnion({
             "ignore": group({}),
             "overwrite": group({}),
-        }))
+        })),
     }),
     'builders': d({
         "Add": builderMethod(typeReference("KeyValuePair")),
