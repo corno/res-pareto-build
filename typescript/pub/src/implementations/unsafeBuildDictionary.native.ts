@@ -1,8 +1,8 @@
 import * as pi from 'pareto-core-internals'
 
-import * as gapi from "../definition/glossary"
+import * as gapi from "../glossary"
 
-import { unsafeBuildDictionary } from "../definition/api.generated"
+import { unsafeBuildDictionary } from "../api.generated"
 
 export const $$: unsafeBuildDictionary = <T>($: null, $c: ($i: gapi.B.Add<T>) => void) => {
     const out: {[key:string]: T} = {}
