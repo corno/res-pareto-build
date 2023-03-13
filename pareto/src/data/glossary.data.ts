@@ -11,11 +11,12 @@ import {
     sfunc,
     type,
     optional,
-    reference,
     glossaryParameter,
     builderMethod,
     builderReference,
     number,
+    externalTypeReference,
+    imp,
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -24,6 +25,9 @@ const d = pd.d
 export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'parameters': d({
         "Type": null,
+    }),
+    'imports': d({
+        "common": imp({}),
     }),
     'types': d({
         "Array": type(array(glossaryParameter("Type"))),
@@ -42,12 +46,12 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'builders': d({
             "Add": builderMethod(typeReference("KeyValuePair")),
             "Push": builderMethod(typeReference("Type")),
-            "OnDuplicate": builderMethod(typeReference("common", "String")),
+            "OnDuplicate": builderMethod(externalTypeReference("common", "String")),
         }),
         'functions': d({
-            "OnDuplicate": sfunc(typeReference("common", "Null"), builderReference("OnDuplicate"), null, null),
-            "BuildArray": sfunc(typeReference("common", "Null"), builderReference("Push"), null, sdata(typeReference("Array"))),
-            "UnsafeBuildDictionary": sfunc(typeReference("common", "Null"), builderReference("Add"), null, sdata(typeReference("Dictionary"))),
+            "OnDuplicate": sfunc(externalTypeReference("common", "Null"), builderReference("OnDuplicate"), null, null),
+            "BuildArray": sfunc(externalTypeReference("common", "Null"), builderReference("Push"), null, sdata(typeReference("Array"))),
+            "UnsafeBuildDictionary": sfunc(externalTypeReference("common", "Null"), builderReference("Add"), null, sdata(typeReference("Dictionary"))),
             "BuildDictionary": sfunc(typeReference("DictionaryBuildStrategy"), builderReference("Add"), null, sdata(typeReference("Dictionary"))),
         }),
 
