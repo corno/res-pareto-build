@@ -7,8 +7,8 @@ import {
     dictionary, member, taggedUnion, types, group,
     array,
     typeReference,
-    data,
-    func,
+    sdata,
+    sfunc,
     type,
     optional,
     reference,
@@ -18,10 +18,10 @@ import {
     number,
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
-import * as gglossary from "lib-pareto-typescript-project/dist/submodules/glossary"
+import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 const d = pd.d
 
-export const $: gglossary.T.Glossary<pd.SourceLocation> = {
+export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'parameters': d({
         "Type": null,
     }),
@@ -38,16 +38,18 @@ export const $: gglossary.T.Glossary<pd.SourceLocation> = {
             "overwrite": group({}),
         })),
     }),
-    'builders': d({
-        "Add": builderMethod(typeReference("KeyValuePair")),
-        "Push": builderMethod(typeReference("Type")),
-        "OnDuplicate": builderMethod(typeReference("common", "String")),
-    }),
-    'interfaces': d({
-    }),
-    'functions': d({
-        "BuildArray": func(typeReference("common", "Null"), builderReference("Push"), null, data(typeReference("Array"), false)),
-        "UnsafeBuildDictionary": func(typeReference("common", "Null"), builderReference("Add"), null, data(typeReference("Dictionary"), false)),
-        "BuildDictionary": func(typeReference("DictionaryBuildStrategy"), builderReference("Add"), builderReference("OnDuplicate"), data(typeReference("Dictionary"), false)),
-    }),
+    'type': ['synchronous', {
+        'builders': d({
+            "Add": builderMethod(typeReference("KeyValuePair")),
+            "Push": builderMethod(typeReference("Type")),
+            "OnDuplicate": builderMethod(typeReference("common", "String")),
+        }),
+        'functions': d({
+            "OnDuplicate": sfunc(typeReference("common", "Null"), builderReference("OnDuplicate"), null, null),
+            "BuildArray": sfunc(typeReference("common", "Null"), builderReference("Push"), null, sdata(typeReference("Array"))),
+            "UnsafeBuildDictionary": sfunc(typeReference("common", "Null"), builderReference("Add"), null, sdata(typeReference("Dictionary"))),
+            "BuildDictionary": sfunc(typeReference("DictionaryBuildStrategy"), builderReference("Add"), null, sdata(typeReference("Dictionary"))),
+        }),
+
+    }],
 }

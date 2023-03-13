@@ -1,10 +1,10 @@
 import * as pi from 'pareto-core-internals'
 
-import * as gapi from "../glossary"
+import * as g_this from "../glossary"
 
 import { unsafeBuildDictionary } from "../api.generated"
 
-export const $$: unsafeBuildDictionary = <T>($: null, $c: ($i: gapi.B.Add<T>) => void) => {
+export const $$: unsafeBuildDictionary = <T>($: null, $c: ($i: g_this.B.Add<T>) => void) => {
     const out: {[key:string]: T} = {}
     $c(($) => {
         if (out[$.key] !== undefined) {
