@@ -8,18 +8,21 @@ export namespace B {
     
     export type Add<GType> = ($: T.KeyValuePair<GType>, ) => void
     
-    export type OnDuplicate<GType> = ($: g_common.T.String, ) => void
-    
     export type Push<GType> = ($: T.Type<GType>, ) => void
+}
+
+export namespace C {
+    
+    export type Add<GType> = ($b: B.Add<GType>) => void
+    
+    export type Push<GType> = ($b: B.Push<GType>) => void
 }
 
 export namespace F {
     
-    export type BuildArray = <GType>($: g_common.T.Null, $c: ($b: B.Push<GType>) => void,) => T.Array<GType>
+    export type BuildArray = <GType>($c: ($b: B.Push<GType>) => void) => T.Array<GType>
     
-    export type BuildDictionary = <GType>($: T.DictionaryBuildStrategy<GType>, $c: ($b: B.Add<GType>) => void,) => T.Dictionary<GType>
+    export type BuildDictionary = <GType>($c: ($b: B.Add<GType>) => void) => T.Dictionary<GType>
     
-    export type OnDuplicate = <GType>($: g_common.T.Null, $c: ($b: B.OnDuplicate<GType>) => void,) => void
-    
-    export type UnsafeBuildDictionary = <GType>($: g_common.T.Null, $c: ($b: B.Add<GType>) => void,) => T.Dictionary<GType>
+    export type UnsafeBuildDictionary = <GType>($c: ($b: B.Add<GType>) => void) => T.Dictionary<GType>
 }

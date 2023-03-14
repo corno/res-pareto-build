@@ -17,6 +17,7 @@ import {
     number,
     externalTypeReference,
     imp,
+    bldr,
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -46,13 +47,11 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'builders': d({
             "Add": builderMethod(typeReference("KeyValuePair")),
             "Push": builderMethod(typeReference("Type")),
-            "OnDuplicate": builderMethod(externalTypeReference("common", "String")),
         }),
         'functions': d({
-            "OnDuplicate": sfunc(externalTypeReference("common", "Null"), builderReference("OnDuplicate"), null, null),
-            "BuildArray": sfunc(externalTypeReference("common", "Null"), builderReference("Push"), null, sdata(typeReference("Array"))),
-            "UnsafeBuildDictionary": sfunc(externalTypeReference("common", "Null"), builderReference("Add"), null, sdata(typeReference("Dictionary"))),
-            "BuildDictionary": sfunc(typeReference("DictionaryBuildStrategy"), builderReference("Add"), null, sdata(typeReference("Dictionary"))),
+            "BuildArray": sfunc(bldr(builderReference("Push")), sdata(typeReference("Array"))),
+            "UnsafeBuildDictionary": sfunc(bldr(builderReference("Add")), sdata(typeReference("Dictionary"))),
+            "BuildDictionary": sfunc(bldr( builderReference("Add")), sdata(typeReference("Dictionary"))),
         }),
 
     }],

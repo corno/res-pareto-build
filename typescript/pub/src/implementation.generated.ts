@@ -1,10 +1,12 @@
 import { API } from "./api.generated"
 import { $$ as ibuildArray } from "./implementations/buildArray.native"
-import { $$ as icreateDictionaryBuilder } from "./implementations/createDictionaryBuilder.native"
+import { $$ as icreateIgnoringDictionaryBuilder } from "./implementations/createIgnoringDictionaryBuilder.native"
+import { $$ as icreateOverwritingDictionaryBuilder } from "./implementations/createOverwritingDictionaryBuilder.native"
 import { $$ as iunsafeBuildDictionary } from "./implementations/unsafeBuildDictionary.native"
 
 export const $r: API = {
     'buildArray': ibuildArray,
-    'createDictionaryBuilder': icreateDictionaryBuilder,
+    'createIgnoringDictionaryBuilder': icreateIgnoringDictionaryBuilder,
+    'createOverwritingDictionaryBuilder': icreateOverwritingDictionaryBuilder,
     'unsafeBuildDictionary': iunsafeBuildDictionary,
 }
