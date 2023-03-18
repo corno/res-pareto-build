@@ -1,23 +1,7 @@
 import * as pd from 'pareto-core-data'
 
 import {
-    string,
-    null_,
-    nested,
-    dictionary, member, taggedUnion, types, group,
-    array,
-    typeReference,
-    sdata,
-    sfunc,
-    type,
-    optional,
-    glossaryParameter,
-    builderMethod,
-    builderReference,
-    number,
-    externalTypeReference,
-    imp,
-    bldr,
+    array, dictionary, glossaryParameter, group, imp, inf, member, sfunc, sInterfaceMethod, sInterfaceReference, string, taggedUnion, type, typeReference
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -43,16 +27,24 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "overwrite": group({}),
         })),
     }),
-    'type': ['synchronous', {
-        'builders': d({
-            "Add": builderMethod(typeReference("KeyValuePair")),
-            "Push": builderMethod(typeReference("Type")),
-        }),
-        'functions': d({
-            "BuildArray": sfunc(bldr(builderReference("Push")), sdata(typeReference("Array"))),
-            "UnsafeBuildDictionary": sfunc(bldr(builderReference("Add")), sdata(typeReference("Dictionary"))),
-            "BuildDictionary": sfunc(bldr( builderReference("Add")), sdata(typeReference("Dictionary"))),
-        }),
+    'asynchronous': {
+        'interfaces': d({}),
+        'constructors': d({}),
+        'functions': d({}),
+    },
+    'synchronous': {
+        'interfaces': d({
+            "Add": sInterfaceMethod(typeReference("KeyValuePair")),
+            "Push": sInterfaceMethod(typeReference("Type")),
 
-    }],
+        }),
+        'constructors': d({}),
+        'functions': d({
+            "BuildArray": sfunc(inf(sInterfaceReference("Push")), typeReference("Array")),
+            "UnsafeBuildDictionary": sfunc(inf(sInterfaceReference("Add")), typeReference("Dictionary")),
+            "BuildDictionary": sfunc(inf(sInterfaceReference("Add")), typeReference("Dictionary")),
+
+        }),
+    },
+
 }
