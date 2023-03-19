@@ -1,7 +1,11 @@
 import * as pd from 'pareto-core-data'
 
 import {
-    array, dictionary, glossaryParameter, group, imp, inf, member, sfunc, sInterfaceMethod, sInterfaceReference, string, taggedUnion, type, typeReference
+    aconstructor,
+    aInterfaceMethod,
+    aInterfaceReference,
+    array, dictionary, externalTypeReference, glossaryParameter, group, imp, inf, member,
+    sfunc, sInterfaceMethod, sInterfaceReference, stream, string, taggedUnion, type, typeReference
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -28,8 +32,35 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         })),
     }),
     'asynchronous': {
-        'interfaces': d({}),
-        'constructors': d({}),
+        'interfaces': d({
+            "Array": aInterfaceMethod(typeReference("Array")),
+            "Dictionary": aInterfaceMethod(typeReference("Dictionary")),
+            "Elements": stream(
+                aInterfaceMethod(typeReference("Type")),
+                aInterfaceMethod(null),
+            ),
+            "Entries": stream(
+                aInterfaceMethod(typeReference("KeyValuePair")),
+                aInterfaceMethod(null),
+            ),
+            "DuplicatesHandler": stream(
+                aInterfaceMethod(externalTypeReference("common", "String")),
+                aInterfaceMethod(null),
+            ),
+        }),
+        'constructors': d({
+            "CreateArrayBuilder": aconstructor(aInterfaceReference("Elements"), {
+                "handler": aInterfaceReference("Array"),
+            }),
+            "CreateUnsafeDictionaryBuilder": aconstructor(aInterfaceReference("Entries"), {
+                "handler": aInterfaceReference("Dictionary"),
+            }),
+            "CreateSafeDictionaryBuilder": aconstructor(aInterfaceReference("Entries"), {
+                "handler": aInterfaceReference("Dictionary"),
+                "duplicatesHandler": aInterfaceReference("DuplicatesHandler"),
+                
+            }),
+        }),
         'functions': d({}),
     },
     'synchronous': {
@@ -41,9 +72,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'constructors': d({}),
         'functions': d({
             "BuildArray": sfunc(inf(sInterfaceReference("Push")), typeReference("Array")),
-            "UnsafeBuildDictionary": sfunc(inf(sInterfaceReference("Add")), typeReference("Dictionary")),
             "BuildDictionary": sfunc(inf(sInterfaceReference("Add")), typeReference("Dictionary")),
-
         }),
     },
 
