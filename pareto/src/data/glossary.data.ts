@@ -5,7 +5,8 @@ import {
     aInterfaceMethod,
     aInterfaceReference,
     array, dictionary, externalTypeReference, glossaryParameter, group, imp, inf, member,
-    sfunc, sInterfaceMethod, sInterfaceReference, stream, string, taggedUnion, type, typeReference
+    sfunction,
+    sInterfaceMethod, sInterfaceReference, stream, string, taggedUnion, type, typeReference
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -58,7 +59,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "CreateSafeDictionaryBuilder": aconstructor(aInterfaceReference("Entries"), {
                 "handler": aInterfaceReference("Dictionary"),
                 "duplicatesHandler": aInterfaceReference("DuplicatesHandler"),
-                
+
             }),
         }),
         'functions': d({}),
@@ -71,8 +72,8 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         }),
         'constructors': d({}),
         'functions': d({
-            "BuildArray": sfunc(inf(sInterfaceReference("Push")), typeReference("Array")),
-            "BuildDictionary": sfunc(inf(sInterfaceReference("Add")), typeReference("Dictionary")),
+            "BuildArray": sfunction(inf(sInterfaceReference("Push")), typeReference("Array")),
+            "BuildDictionary": sfunction(inf(sInterfaceReference("Add")), typeReference("Dictionary")),
         }),
     },
 
