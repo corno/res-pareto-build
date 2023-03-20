@@ -49,7 +49,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 aInterfaceMethod(null),
             ),
         }),
-        'constructors': d({
+        'algorithms': d({
             "CreateArrayBuilder": aconstructor(aInterfaceReference("Elements"), {
                 "handler": aInterfaceReference("Array"),
             }),
@@ -62,7 +62,7 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
 
             }),
         }),
-        'functions': d({}),
+        
     },
     'synchronous': {
         'interfaces': d({
@@ -70,10 +70,9 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             "Push": sInterfaceMethod(typeReference("Type")),
 
         }),
-        'constructors': d({}),
-        'functions': d({
-            "BuildArray": sfunction(inf(sInterfaceReference("Push")), typeReference("Array")),
-            "BuildDictionary": sfunction(inf(sInterfaceReference("Add")), typeReference("Dictionary")),
+        'algorithms': d({
+            "BuildArray": sfunction(typeReference("Array"), inf(sInterfaceReference("Push"))),
+            "BuildDictionary": sfunction(typeReference("Dictionary"), inf(sInterfaceReference("Add"))),
         }),
     },
 

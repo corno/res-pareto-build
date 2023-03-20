@@ -28,23 +28,30 @@ export namespace ASYNC {
         }
     }
     
-    export namespace C {
+    export namespace A {
         
-        export type CreateArrayBuilder = <GType>($is: {
-            'handler': I.Array<GType>
-        }) => I.Elements<GType>
         
-        export type CreateSafeDictionaryBuilder = <GType>($is: {
-            'duplicatesHandler': I.DuplicatesHandler<GType>
-            'handler': I.Dictionary<GType>
-        }) => I.Entries<GType>
+        export namespace C {
+            export type CreateArrayBuilder = <GType>($is: {
+                'handler': ASYNC.I.Array<GType>
+            }) => ASYNC.I.Elements<GType>
+        }
         
-        export type CreateUnsafeDictionaryBuilder = <GType>($is: {
-            'handler': I.Dictionary<GType>
-        }) => I.Entries<GType>
+        
+        export namespace C {
+            export type CreateSafeDictionaryBuilder = <GType>($is: {
+                'duplicatesHandler': ASYNC.I.DuplicatesHandler<GType>
+                'handler': ASYNC.I.Dictionary<GType>
+            }) => ASYNC.I.Entries<GType>
+        }
+        
+        
+        export namespace C {
+            export type CreateUnsafeDictionaryBuilder = <GType>($is: {
+                'handler': ASYNC.I.Dictionary<GType>
+            }) => ASYNC.I.Entries<GType>
+        }
     }
-    
-    export namespace F {}
 }
 
 export namespace SYNC {
@@ -56,30 +63,23 @@ export namespace SYNC {
         export type Push<GType> = ($: T.Type<GType>, ) => void
     }
     
-    export namespace I2 {
+    export namespace IW {
         
-        export type Add<GType> = ($b: I.Add<GType>) => void
+        export type Add<GType> = ($c: ($b: I.Add<GType>) => void) => void
         
-        export type Push<GType> = ($b: I.Push<GType>) => void
+        export type Push<GType> = ($c: ($b: I.Push<GType>) => void) => void
     }
     
-    export namespace I3 {
+    export namespace A {
         
-        export type Add<GType> = ($c: I2.Add<GType>) => void
         
-        export type Push<GType> = ($c: I2.Push<GType>) => void
-    }
-    
-    export namespace C {}
-    
-    export namespace C2 {}
-    
-    export namespace C3 {}
-    
-    export namespace F {
+        export namespace F {
+            export type BuildArray = <GType>($c: ($b: SYNC.I.Push<GType>) => void) => T.Array<GType>
+        }
         
-        export type BuildArray = <GType>($c: ($b: I.Push<GType>) => void) => T.Array<GType>
         
-        export type BuildDictionary = <GType>($c: ($b: I.Add<GType>) => void) => T.Dictionary<GType>
+        export namespace F {
+            export type BuildDictionary = <GType>($c: ($b: SYNC.I.Add<GType>) => void) => T.Dictionary<GType>
+        }
     }
 }
