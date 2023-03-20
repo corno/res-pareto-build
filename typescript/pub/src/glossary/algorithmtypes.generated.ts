@@ -33,22 +33,22 @@ export namespace ASYNC {
         
         export namespace C {
             export type CreateArrayBuilder = <GType>($is: {
-                'handler': ASYNC.I.Array<GType>
+                readonly 'handler': ASYNC.I.Array<GType>
             }) => ASYNC.I.Elements<GType>
         }
         
         
         export namespace C {
             export type CreateSafeDictionaryBuilder = <GType>($is: {
-                'duplicatesHandler': ASYNC.I.DuplicatesHandler<GType>
-                'handler': ASYNC.I.Dictionary<GType>
+                readonly 'duplicatesHandler': ASYNC.I.DuplicatesHandler<GType>
+                readonly 'handler': ASYNC.I.Dictionary<GType>
             }) => ASYNC.I.Entries<GType>
         }
         
         
         export namespace C {
             export type CreateUnsafeDictionaryBuilder = <GType>($is: {
-                'handler': ASYNC.I.Dictionary<GType>
+                readonly 'handler': ASYNC.I.Dictionary<GType>
             }) => ASYNC.I.Entries<GType>
         }
     }

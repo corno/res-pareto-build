@@ -13,11 +13,11 @@ export namespace A {
     
     export type createAsyncOverwritingDictionaryBuilder = g_this.ASYNC.A.C.CreateSafeDictionaryBuilder
     
-    export type createSyncIgnoringDictionaryBuilder = ($d: {}, $se: {
+    export type createSyncIgnoringDictionaryBuilder = ($d: null, $se: {
         readonly 'onDuplicate': g_common.SYNC.I.String
     }) => g_this.SYNC.A.F.BuildDictionary
     
-    export type createSyncOverwritingDictionaryBuilder = ($d: {}, $se: {
+    export type createSyncOverwritingDictionaryBuilder = ($d: null, $se: {
         readonly 'onDuplicate': g_common.SYNC.I.String
     }) => g_this.SYNC.A.F.BuildDictionary
     
@@ -27,12 +27,12 @@ export namespace A {
 }
 
 export type API = {
-    buildArray: A.buildArray
-    createAsyncArrayBuilder: A.createAsyncArrayBuilder
-    createAsyncIgnoringDictionaryBuilder: A.createAsyncIgnoringDictionaryBuilder
-    createAsyncOverwritingDictionaryBuilder: A.createAsyncOverwritingDictionaryBuilder
-    createSyncIgnoringDictionaryBuilder: A.createSyncIgnoringDictionaryBuilder
-    createSyncOverwritingDictionaryBuilder: A.createSyncOverwritingDictionaryBuilder
-    createUnsafeAsyncDictionaryBuilder: A.createUnsafeAsyncDictionaryBuilder
-    unsafeSyncBuildDictionary: A.unsafeSyncBuildDictionary
+    readonly 'buildArray': A.buildArray
+    readonly 'createAsyncArrayBuilder': A.createAsyncArrayBuilder
+    readonly 'createAsyncIgnoringDictionaryBuilder': A.createAsyncIgnoringDictionaryBuilder
+    readonly 'createAsyncOverwritingDictionaryBuilder': A.createAsyncOverwritingDictionaryBuilder
+    readonly 'createSyncIgnoringDictionaryBuilder': A.createSyncIgnoringDictionaryBuilder
+    readonly 'createSyncOverwritingDictionaryBuilder': A.createSyncOverwritingDictionaryBuilder
+    readonly 'createUnsafeAsyncDictionaryBuilder': A.createUnsafeAsyncDictionaryBuilder
+    readonly 'unsafeSyncBuildDictionary': A.unsafeSyncBuildDictionary
 }
