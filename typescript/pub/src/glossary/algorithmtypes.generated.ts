@@ -32,14 +32,14 @@ export namespace ASYNC {
         
         
         export namespace C {
-            export type CreateArrayBuilder = <GType>($is: {
+            export type CreateArrayBuilder<GType> = ($is: {
                 readonly 'handler': ASYNC.I.Array<GType>
             }) => ASYNC.I.Elements<GType>
         }
         
         
         export namespace C {
-            export type CreateSafeDictionaryBuilder = <GType>($is: {
+            export type CreateSafeDictionaryBuilder<GType> = ($is: {
                 readonly 'duplicatesHandler': ASYNC.I.DuplicatesHandler<GType>
                 readonly 'handler': ASYNC.I.Dictionary<GType>
             }) => ASYNC.I.Entries<GType>
@@ -47,7 +47,7 @@ export namespace ASYNC {
         
         
         export namespace C {
-            export type CreateUnsafeDictionaryBuilder = <GType>($is: {
+            export type CreateUnsafeDictionaryBuilder<GType> = ($is: {
                 readonly 'handler': ASYNC.I.Dictionary<GType>
             }) => ASYNC.I.Entries<GType>
         }
@@ -74,12 +74,12 @@ export namespace SYNC {
         
         
         export namespace F {
-            export type BuildArray = <GType>($c: ($b: SYNC.I.Push<GType>) => void) => T.Array<GType>
+            export type BuildArray<GType> = ($c: ($b: SYNC.I.Push<GType>) => void) => T.Array<GType>
         }
         
         
         export namespace F {
-            export type BuildDictionary = <GType>($c: ($b: SYNC.I.Add<GType>) => void) => T.Dictionary<GType>
+            export type BuildDictionary<GType> = ($c: ($b: SYNC.I.Add<GType>) => void) => T.Dictionary<GType>
         }
     }
 }

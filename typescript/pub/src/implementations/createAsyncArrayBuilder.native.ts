@@ -4,18 +4,20 @@ import * as g_this from "../glossary"
 
 import { A } from "../api.generated"
 
-export const $$: A.createAsyncArrayBuilder = <GType>(
-    $is: {
-        handler: g_this.ASYNC.I.Array<GType>
-    }
-): g_this.ASYNC.I.Elements<GType> => {
-    const arr: GType[] = []
-    return {
-        'data': ($) => {
-            arr.push($)
-        },
-        'end': () => {
-            $is.handler(pi.wrapRawArray(arr))
+export const $$: A.createAsyncArrayBuilder = () => {
+    return <GType>(
+        $is: {
+            handler: g_this.ASYNC.I.Array<GType>
+        }
+    ): g_this.ASYNC.I.Elements<GType> => {
+        const arr: GType[] = []
+        return {
+            'data': ($) => {
+                arr.push($)
+            },
+            'end': () => {
+                $is.handler(pi.wrapRawArray(arr))
+            }
         }
     }
 }

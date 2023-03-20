@@ -5,25 +5,25 @@ import * as g_this from "./glossary"
 
 export namespace A {
     
-    export type buildArray = g_this.SYNC.A.F.BuildArray
+    export type buildArray = <GAnnotation>() => g_this.SYNC.A.F.BuildArray<GAnnotation>
     
-    export type createAsyncArrayBuilder = g_this.ASYNC.A.C.CreateArrayBuilder
+    export type createAsyncArrayBuilder = <GAnnotation>() => g_this.ASYNC.A.C.CreateArrayBuilder<GAnnotation>
     
-    export type createAsyncIgnoringDictionaryBuilder = g_this.ASYNC.A.C.CreateSafeDictionaryBuilder
+    export type createAsyncIgnoringDictionaryBuilder = <GAnnotation>() => g_this.ASYNC.A.C.CreateSafeDictionaryBuilder<GAnnotation>
     
-    export type createAsyncOverwritingDictionaryBuilder = g_this.ASYNC.A.C.CreateSafeDictionaryBuilder
+    export type createAsyncOverwritingDictionaryBuilder = <GAnnotation>() => g_this.ASYNC.A.C.CreateSafeDictionaryBuilder<GAnnotation>
     
-    export type createSyncIgnoringDictionaryBuilder = ($d: null, $se: {
+    export type createSyncIgnoringDictionaryBuilder = <GAnnotation>($d: null, $se: {
         readonly 'onDuplicate': g_common.SYNC.I.String
-    }) => g_this.SYNC.A.F.BuildDictionary
+    }) => g_this.SYNC.A.F.BuildDictionary<GAnnotation>
     
-    export type createSyncOverwritingDictionaryBuilder = ($d: null, $se: {
+    export type createSyncOverwritingDictionaryBuilder = <GAnnotation>($d: null, $se: {
         readonly 'onDuplicate': g_common.SYNC.I.String
-    }) => g_this.SYNC.A.F.BuildDictionary
+    }) => g_this.SYNC.A.F.BuildDictionary<GAnnotation>
     
-    export type createUnsafeAsyncDictionaryBuilder = g_this.ASYNC.A.C.CreateUnsafeDictionaryBuilder
+    export type createUnsafeAsyncDictionaryBuilder = <GAnnotation>() => g_this.ASYNC.A.C.CreateUnsafeDictionaryBuilder<GAnnotation>
     
-    export type unsafeSyncBuildDictionary = g_this.SYNC.A.F.BuildDictionary
+    export type unsafeSyncBuildDictionary = <GAnnotation>() => g_this.SYNC.A.F.BuildDictionary<GAnnotation>
 }
 
 export type API = {

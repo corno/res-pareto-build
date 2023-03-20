@@ -4,23 +4,20 @@ import * as g_this from "../glossary"
 
 import { A } from "../api.generated"
 
-export const $$: A.createAsyncOverwritingDictionaryBuilder = <GType>(
-    $is: {
-        'duplicatesHandler': g_this.ASYNC.I.DuplicatesHandler<GType>
-        'handler': g_this.ASYNC.I.Dictionary<GType>
-    }
-): g_this.ASYNC.I.Entries<GType> => {
-    const dict: { [key: string]: GType } = {}
-    return {
-        'data': ($) => {
-            if (dict[$.key] !== undefined) {
-                $is.duplicatesHandler.data($.key)
+export const $$: A.createAsyncOverwritingDictionaryBuilder = <GAnnotation>(): g_this.ASYNC.A.C.CreateSafeDictionaryBuilder<GAnnotation> => {
+    return ($is) => {
+        const dict: { [key: string]: GAnnotation } = {}
+        return {
+            'data': ($) => {
+                if (dict[$.key] !== undefined) {
+                    $is.duplicatesHandler.data($.key)
+                }
+                dict[$.key] = $.value
+            },
+            'end': () => {
+                $is.handler(pi.wrapRawDictionary(dict))
+                $is.duplicatesHandler.end()
             }
-            dict[$.key] = $.value
-        },
-        'end': () => {
-            $is.handler(pi.wrapRawDictionary(dict))
-            $is.duplicatesHandler.end()
         }
     }
 }

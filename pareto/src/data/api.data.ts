@@ -6,21 +6,21 @@ import * as g_project from "lib-pareto-typescript-project/dist/submodules/projec
 
 const d = pd.d
 
-export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> ={
+export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
     'algorithms': d({
-        "buildArray": algorithm(sfunction("this", {}, "BuildArray")),
-        "unsafeSyncBuildDictionary": algorithm(sfunction("this", {}, "BuildDictionary")),
-        "createSyncOverwritingDictionaryBuilder": algorithm(sfunction("this", {}, "BuildDictionary"), dependent(null, { //<-- cannot use 'DictionaryBuildStrategy' yet. It needs a (bogus) parameter
+        "buildArray": algorithm(sfunction("this", {}, "BuildArray"), { "Annotation": "Annotation" }),
+        "unsafeSyncBuildDictionary": algorithm(sfunction("this", {}, "BuildDictionary"), { "Annotation": "Annotation" }),
+        "createSyncOverwritingDictionaryBuilder": algorithm(sfunction("this", {}, "BuildDictionary"), { "Annotation": "Annotation" }, dependent(null, { //<-- cannot use 'DictionaryBuildStrategy' yet. It needs a (bogus) parameter
         }, {
             "onDuplicate": sSideEffect("common", {}, "String"),
         })),
-        "createSyncIgnoringDictionaryBuilder": algorithm(sfunction("this", {}, "BuildDictionary"), dependent(null, {
+        "createSyncIgnoringDictionaryBuilder": algorithm(sfunction("this", {}, "BuildDictionary"), { "Annotation": "Annotation" }, dependent(null, {
         }, {
             "onDuplicate": sSideEffect("common", {}, "String"),
         })),
-        "createUnsafeAsyncDictionaryBuilder": algorithm(aconstructor("this", {}, "CreateUnsafeDictionaryBuilder")),
-        "createAsyncOverwritingDictionaryBuilder": algorithm(aconstructor("this", {}, "CreateSafeDictionaryBuilder")),
-        "createAsyncIgnoringDictionaryBuilder": algorithm(aconstructor("this", {}, "CreateSafeDictionaryBuilder")),
-        "createAsyncArrayBuilder": algorithm(aconstructor("this", {}, "CreateArrayBuilder")),
+        "createUnsafeAsyncDictionaryBuilder": algorithm(aconstructor("this", {}, "CreateUnsafeDictionaryBuilder"), { "Annotation": "Annotation" }),
+        "createAsyncOverwritingDictionaryBuilder": algorithm(aconstructor("this", {}, "CreateSafeDictionaryBuilder"), { "Annotation": "Annotation" }),
+        "createAsyncIgnoringDictionaryBuilder": algorithm(aconstructor("this", {}, "CreateSafeDictionaryBuilder"), { "Annotation": "Annotation" }),
+        "createAsyncArrayBuilder": algorithm(aconstructor("this", {}, "CreateArrayBuilder"), { "Annotation": "Annotation" }),
     }),
 }
