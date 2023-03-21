@@ -6,7 +6,7 @@ import {
     aInterfaceReference,
     array, dictionary, externalTypeReference, glossaryParameter, group, imp, inf, member,
     sfunction,
-    sInterfaceMethod, sInterfaceReference, stream, string, taggedUnion, type, typeReference
+    sInterfaceMethod, sInterfaceReference, streamconsumer, string, taggedUnion, type, typeReference
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
@@ -36,15 +36,15 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'interfaces': d({
             "Array": aInterfaceMethod(typeReference("Array")),
             "Dictionary": aInterfaceMethod(typeReference("Dictionary")),
-            "Elements": stream(
+            "Elements": streamconsumer(
                 aInterfaceMethod(typeReference("Type")),
                 aInterfaceMethod(null),
             ),
-            "Entries": stream(
+            "Entries": streamconsumer(
                 aInterfaceMethod(typeReference("KeyValuePair")),
                 aInterfaceMethod(null),
             ),
-            "DuplicatesHandler": stream(
+            "DuplicatesHandler": streamconsumer(
                 aInterfaceMethod(externalTypeReference("common", "String")),
                 aInterfaceMethod(null),
             ),

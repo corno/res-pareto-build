@@ -63,13 +63,6 @@ export namespace SYNC {
         export type Push<GType> = ($: T.Type<GType>, ) => void
     }
     
-    export namespace IW {
-        
-        export type Add<GType> = ($c: ($b: I.Add<GType>) => void) => void
-        
-        export type Push<GType> = ($c: ($b: I.Push<GType>) => void) => void
-    }
-    
     export namespace A {
         
         
