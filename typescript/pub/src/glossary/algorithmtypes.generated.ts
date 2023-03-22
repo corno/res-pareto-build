@@ -67,12 +67,12 @@ export namespace SYNC {
         
         
         export namespace F {
-            export type BuildArray<GType> = ($c: ($b: SYNC.I.Push<GType>) => void) => T.Array<GType>
+            export type BuildArray<GType> = ($c: ($i: SYNC.I.Push<GType>) => void) => T.Array<GType>
         }
         
         
         export namespace F {
-            export type BuildDictionary<GType> = ($c: ($b: SYNC.I.Add<GType>) => void) => T.Dictionary<GType>
+            export type BuildDictionary<GType> = ($c: ($i: SYNC.I.Add<GType>) => void) => T.Dictionary<GType>
         }
     }
 }

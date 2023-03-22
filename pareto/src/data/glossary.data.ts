@@ -1,7 +1,7 @@
 import * as pd from 'pareto-core-data'
 
 import {
-    aconstructor,
+    constructor,
     aInterfaceMethod,
     aInterfaceReference,
     array, dictionary, externalTypeReference, glossaryParameter, group, imp, inf, member,
@@ -50,13 +50,13 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             ),
         }),
         'algorithms': d({
-            "CreateArrayBuilder": aconstructor(aInterfaceReference("Elements"), {
+            "CreateArrayBuilder": constructor(aInterfaceReference("Elements"), {
                 "handler": aInterfaceReference("Array"),
             }),
-            "CreateUnsafeDictionaryBuilder": aconstructor(aInterfaceReference("Entries"), {
+            "CreateUnsafeDictionaryBuilder": constructor(aInterfaceReference("Entries"), {
                 "handler": aInterfaceReference("Dictionary"),
             }),
-            "CreateSafeDictionaryBuilder": aconstructor(aInterfaceReference("Entries"), {
+            "CreateSafeDictionaryBuilder": constructor(aInterfaceReference("Entries"), {
                 "handler": aInterfaceReference("Dictionary"),
                 "duplicatesHandler": aInterfaceReference("DuplicatesHandler"),
 
