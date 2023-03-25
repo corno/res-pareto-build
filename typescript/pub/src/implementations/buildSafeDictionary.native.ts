@@ -4,7 +4,7 @@ import * as g_this from "../glossary"
 
 import { A } from "../api.generated"
 
-export const $$: A.createSyncDictionaryBuilder = ($x, $se) => {
+export const $$: A.buildSafeDictionary = ($x, $se) => {
     return <T>($c: ($i: g_this.SYNC.I.Add<T>) => void) => {
         const out: { [key: string]: T } = {}
         $c(($) => {

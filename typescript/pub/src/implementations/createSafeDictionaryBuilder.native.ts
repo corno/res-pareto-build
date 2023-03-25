@@ -4,7 +4,7 @@ import * as g_this from "../glossary"
 
 import { A } from "../api.generated"
 
-export const $$: A.createAsyncDictionaryBuilder = ($c) => {
+export const $$: A.createSafeDictionaryBuilder = ($c) => {
     return <GType>(
         $is: {
             'duplicatesHandler': g_this.ASYNC.I.DuplicatesHandler

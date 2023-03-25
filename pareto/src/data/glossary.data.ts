@@ -69,7 +69,8 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         }),
         'algorithms': d({
             "BuildArray": sfunction(typeReference("Array", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Push", {"Type": typeParameter("Type")})), { "Type": null }),
-            "BuildDictionary": sfunction(typeReference("Dictionary", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Add", {"Type": typeParameter("Type")})), { "Type": null }),
+            "BuildUnsafeDictionary": sfunction(typeReference("Dictionary", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Add", {"Type": typeParameter("Type")})), { "Type": null }),
+            "BuildSafeDictionary": sfunction(typeReference("Dictionary", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Add", {"Type": typeParameter("Type")})), { "Type": null }),
         }),
     },
 

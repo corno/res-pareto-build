@@ -72,7 +72,12 @@ export namespace SYNC {
         
         
         export namespace F {
-            export type BuildDictionary = <TType>($c: ($i: SYNC.I.Add<TType>) => void) => T.Dictionary<TType>
+            export type BuildSafeDictionary = <TType>($c: ($i: SYNC.I.Add<TType>) => void) => T.Dictionary<TType>
+        }
+        
+        
+        export namespace F {
+            export type BuildUnsafeDictionary = <TType>($c: ($i: SYNC.I.Add<TType>) => void) => T.Dictionary<TType>
         }
     }
 }

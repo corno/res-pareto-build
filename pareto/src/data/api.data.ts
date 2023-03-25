@@ -9,12 +9,12 @@ const d = pd.d
 export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
     'algorithms': d({
         "buildArray": algorithm(sfunction("this", {}, "BuildArray")),
-        "unsafeSyncBuildDictionary": algorithm(sfunction("this", {}, "BuildDictionary")),
-        "createSyncDictionaryBuilder": algorithm(sfunction("this", {}, "BuildDictionary"), {}, dependent(data("this", {}, "DictionaryBuildStrategy"), {}, {
+        "buildUnsafeDictionary": algorithm(sfunction("this", {}, "BuildUnsafeDictionary")),
+        "buildSafeDictionary": algorithm(sfunction("this", {}, "BuildSafeDictionary"), {}, dependent(data("this", {}, "DictionaryBuildStrategy"), {}, {
             "onDuplicate": sSideEffect("common", {}, "String"),
         })),
-        "createUnsafeAsyncDictionaryBuilder": algorithm(constructor("this", {}, "CreateUnsafeDictionaryBuilder")),
-        "createAsyncDictionaryBuilder": algorithm(constructor("this", {}, "CreateSafeDictionaryBuilder"), {}, dependent(data("this", {}, "DictionaryBuildStrategy"), {}, {})),
-        "createAsyncArrayBuilder": algorithm(constructor("this", {}, "CreateArrayBuilder")),
+        "createUnsafeDictionaryBuilder": algorithm(constructor("this", {}, "CreateUnsafeDictionaryBuilder")),
+        "createSafeDictionaryBuilder": algorithm(constructor("this", {}, "CreateSafeDictionaryBuilder"), {}, dependent(data("this", {}, "DictionaryBuildStrategy"), {}, {})),
+        "createArrayBuilder": algorithm(constructor("this", {}, "CreateArrayBuilder")),
     }),
 }
