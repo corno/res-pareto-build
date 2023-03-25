@@ -6,44 +6,42 @@ export namespace T {
     
     export namespace Array {
         
-        export type A<GType> = GType
+        export type A<TType> = TType
     }
     
-    export type Array<GType> = pt.Array<GType>
+    export type Array<TType> = pt.Array<TType>
     
     export namespace Dictionary {
         
-        export type D<GType> = GType
+        export type D<TType> = TType
     }
     
-    export type Dictionary<GType> = pt.Dictionary<GType>
+    export type Dictionary<TType> = pt.Dictionary<TType>
     
     export namespace DictionaryBuildStrategy {
         
         export namespace ignore {}
         
-        export type ignore<GType> = null
+        export type ignore = null
         
         export namespace overwrite {}
         
-        export type overwrite<GType> = null
+        export type overwrite = null
     }
     
-    export type DictionaryBuildStrategy<GType> = 
+    export type DictionaryBuildStrategy = 
         | ['ignore', null]
         | ['overwrite', null]
     
     export namespace KeyValuePair {
         
-        export type key<GType> = string
+        export type key<TType> = string
         
-        export type value<GType> = GType
+        export type value<TType> = TType
     }
     
-    export type KeyValuePair<GType> = {
+    export type KeyValuePair<TType> = {
         readonly 'key': string
-        readonly 'value': GType
+        readonly 'value': TType
     }
-    
-    export type Type<GType> = GType
 }

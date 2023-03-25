@@ -5,34 +5,26 @@ import * as g_this from "./glossary"
 
 export namespace A {
     
-    export type buildArray = <GAnnotation>() => g_this.SYNC.A.F.BuildArray<GAnnotation>
+    export type buildArray = () => g_this.SYNC.A.F.BuildArray
     
-    export type createAsyncArrayBuilder = <GAnnotation>() => g_this.ASYNC.A.C.CreateArrayBuilder<GAnnotation>
+    export type createAsyncArrayBuilder = () => g_this.ASYNC.A.C.CreateArrayBuilder
     
-    export type createAsyncIgnoringDictionaryBuilder = <GAnnotation>() => g_this.ASYNC.A.C.CreateSafeDictionaryBuilder<GAnnotation>
+    export type createAsyncDictionaryBuilder = ($: g_this.T.DictionaryBuildStrategy, ) => g_this.ASYNC.A.C.CreateSafeDictionaryBuilder
     
-    export type createAsyncOverwritingDictionaryBuilder = <GAnnotation>() => g_this.ASYNC.A.C.CreateSafeDictionaryBuilder<GAnnotation>
-    
-    export type createSyncIgnoringDictionaryBuilder = <GAnnotation>($se: {
+    export type createSyncDictionaryBuilder = ($: g_this.T.DictionaryBuildStrategy, $se: {
         readonly 'onDuplicate': g_common.SYNC.I.String
-    }, ) => g_this.SYNC.A.F.BuildDictionary<GAnnotation>
+    }, ) => g_this.SYNC.A.F.BuildDictionary
     
-    export type createSyncOverwritingDictionaryBuilder = <GAnnotation>($se: {
-        readonly 'onDuplicate': g_common.SYNC.I.String
-    }, ) => g_this.SYNC.A.F.BuildDictionary<GAnnotation>
+    export type createUnsafeAsyncDictionaryBuilder = () => g_this.ASYNC.A.C.CreateUnsafeDictionaryBuilder
     
-    export type createUnsafeAsyncDictionaryBuilder = <GAnnotation>() => g_this.ASYNC.A.C.CreateUnsafeDictionaryBuilder<GAnnotation>
-    
-    export type unsafeSyncBuildDictionary = <GAnnotation>() => g_this.SYNC.A.F.BuildDictionary<GAnnotation>
+    export type unsafeSyncBuildDictionary = () => g_this.SYNC.A.F.BuildDictionary
 }
 
 export type API = {
     readonly 'buildArray': A.buildArray
     readonly 'createAsyncArrayBuilder': A.createAsyncArrayBuilder
-    readonly 'createAsyncIgnoringDictionaryBuilder': A.createAsyncIgnoringDictionaryBuilder
-    readonly 'createAsyncOverwritingDictionaryBuilder': A.createAsyncOverwritingDictionaryBuilder
-    readonly 'createSyncIgnoringDictionaryBuilder': A.createSyncIgnoringDictionaryBuilder
-    readonly 'createSyncOverwritingDictionaryBuilder': A.createSyncOverwritingDictionaryBuilder
+    readonly 'createAsyncDictionaryBuilder': A.createAsyncDictionaryBuilder
+    readonly 'createSyncDictionaryBuilder': A.createSyncDictionaryBuilder
     readonly 'createUnsafeAsyncDictionaryBuilder': A.createUnsafeAsyncDictionaryBuilder
     readonly 'unsafeSyncBuildDictionary': A.unsafeSyncBuildDictionary
 }

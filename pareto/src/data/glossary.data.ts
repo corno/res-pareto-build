@@ -4,29 +4,26 @@ import {
     constructor,
     aInterfaceMethod,
     aInterfaceReference,
-    array, dictionary, externalTypeReference, glossaryParameter, group, imp, inf, member,
+    array, dictionary, externalTypeReference, ref, typeParameter, group, imp, inf, member,
     sfunction,
-    sInterfaceMethod, sInterfaceReference, streamconsumer, string, taggedUnion, type, typeReference
+    sInterfaceMethod, sInterfaceReference, streamconsumer, string, taggedUnion, type, typeReference, aInterface, sInterface, parametrizedType
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
 
 import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/glossary"
 const d = pd.d
 
 export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
-    'parameters': d({
-        "Type": null,
-    }),
+    'parameters': d({}),
     'imports': d({
         "common": imp({}),
     }),
     'types': d({
-        "Array": type(array(glossaryParameter("Type"))),
-        "Dictionary": type(dictionary(glossaryParameter("Type"))),
-        "KeyValuePair": type(group({
+        "Array": parametrizedType({ "Type": null }, array(ref(typeParameter("Type")))),
+        "Dictionary": parametrizedType({ "Type": null }, dictionary(ref(typeParameter("Type")))),
+        "KeyValuePair": parametrizedType({ "Type": null }, group({
             "key": member(string()),
-            "value": member(glossaryParameter("Type")),
+            "value": member(ref(typeParameter("Type"))),
         })),
-        "Type": type(glossaryParameter("Type")),
         "DictionaryBuildStrategy": type(taggedUnion({
             "ignore": group({}),
             "overwrite": group({}),
@@ -34,45 +31,45 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     }),
     'asynchronous': {
         'interfaces': d({
-            "Array": aInterfaceMethod(typeReference("Array")),
-            "Dictionary": aInterfaceMethod(typeReference("Dictionary")),
-            "Elements": streamconsumer(
-                aInterfaceMethod(typeReference("Type")),
+            "Array": aInterface(aInterfaceMethod(typeReference("Array", { "Type": typeParameter("Type") })), { "Type": null }),
+            "Dictionary": aInterface(aInterfaceMethod(typeReference("Dictionary", { "Type": typeParameter("Type") })), { "Type": null }),
+            "Elements": aInterface(streamconsumer(
+                aInterfaceMethod(typeParameter("Type")),
                 aInterfaceMethod(null),
-            ),
-            "Entries": streamconsumer(
-                aInterfaceMethod(typeReference("KeyValuePair")),
+            ), { "Type": null }),
+            "Entries": aInterface(streamconsumer(
+                aInterfaceMethod(typeReference("KeyValuePair", { "Type": typeParameter("Type") })),
                 aInterfaceMethod(null),
-            ),
-            "DuplicatesHandler": streamconsumer(
+            ), { "Type": null }),
+            "DuplicatesHandler": aInterface(streamconsumer(
                 aInterfaceMethod(externalTypeReference("common", "String")),
                 aInterfaceMethod(null),
-            ),
+            )),
         }),
         'algorithms': d({
-            "CreateArrayBuilder": constructor(aInterfaceReference("Elements"), {
-                "handler": aInterfaceReference("Array"),
-            }),
-            "CreateUnsafeDictionaryBuilder": constructor(aInterfaceReference("Entries"), {
-                "handler": aInterfaceReference("Dictionary"),
-            }),
-            "CreateSafeDictionaryBuilder": constructor(aInterfaceReference("Entries"), {
-                "handler": aInterfaceReference("Dictionary"),
+            "CreateArrayBuilder": constructor(aInterfaceReference("Elements", {"Type": typeParameter("Type")}), {
+                "handler": aInterfaceReference("Array", {"Type": typeParameter("Type")}),
+            }, {"Type": null}),
+            "CreateUnsafeDictionaryBuilder": constructor(aInterfaceReference("Entries", {"Type": typeParameter("Type")}), {
+                "handler": aInterfaceReference("Dictionary", {"Type": typeParameter("Type")}),
+            }, {"Type": null}),
+            "CreateSafeDictionaryBuilder": constructor(aInterfaceReference("Entries", {"Type": typeParameter("Type")}), {
+                "handler": aInterfaceReference("Dictionary", {"Type": typeParameter("Type")}),
                 "duplicatesHandler": aInterfaceReference("DuplicatesHandler"),
 
-            }),
+            }, {"Type": null}),
         }),
-        
+
     },
     'synchronous': {
         'interfaces': d({
-            "Add": sInterfaceMethod(typeReference("KeyValuePair")),
-            "Push": sInterfaceMethod(typeReference("Type")),
+            "Add": sInterface(sInterfaceMethod(typeReference("KeyValuePair", { "Type": typeParameter("Type") })), { "Type": null }),
+            "Push": sInterface(sInterfaceMethod(typeParameter("Type")), { "Type": null }),
 
         }),
         'algorithms': d({
-            "BuildArray": sfunction(typeReference("Array"), inf(sInterfaceReference("Push"))),
-            "BuildDictionary": sfunction(typeReference("Dictionary"), inf(sInterfaceReference("Add"))),
+            "BuildArray": sfunction(typeReference("Array", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Push", {"Type": typeParameter("Type")})), { "Type": null }),
+            "BuildDictionary": sfunction(typeReference("Dictionary", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Add", {"Type": typeParameter("Type")})), { "Type": null }),
         }),
     },
 

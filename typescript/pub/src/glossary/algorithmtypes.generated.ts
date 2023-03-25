@@ -8,22 +8,22 @@ export namespace ASYNC {
     
     export namespace I {
         
-        export type Array<GType> = ($: T.Array<GType>, ) => void
+        export type Array<TType> = ($: T.Array<TType>, ) => void
         
-        export type Dictionary<GType> = ($: T.Dictionary<GType>, ) => void
+        export type Dictionary<TType> = ($: T.Dictionary<TType>, ) => void
         
-        export type DuplicatesHandler<GType> = {
+        export type DuplicatesHandler = {
             'data': ($: g_common.T.String, ) => void
             'end': () => void
         }
         
-        export type Elements<GType> = {
-            'data': ($: T.Type<GType>, ) => void
+        export type Elements<TType> = {
+            'data': ($: TType, ) => void
             'end': () => void
         }
         
-        export type Entries<GType> = {
-            'data': ($: T.KeyValuePair<GType>, ) => void
+        export type Entries<TType> = {
+            'data': ($: T.KeyValuePair<TType>, ) => void
             'end': () => void
         }
     }
@@ -32,24 +32,24 @@ export namespace ASYNC {
         
         
         export namespace C {
-            export type CreateArrayBuilder<GType> = ($is: {
-                readonly 'handler': ASYNC.I.Array<GType>
-            }) => ASYNC.I.Elements<GType>
+            export type CreateArrayBuilder = <TType>($is: {
+                readonly 'handler': ASYNC.I.Array<TType>
+            }) => ASYNC.I.Elements<TType>
         }
         
         
         export namespace C {
-            export type CreateSafeDictionaryBuilder<GType> = ($is: {
-                readonly 'duplicatesHandler': ASYNC.I.DuplicatesHandler<GType>
-                readonly 'handler': ASYNC.I.Dictionary<GType>
-            }) => ASYNC.I.Entries<GType>
+            export type CreateSafeDictionaryBuilder = <TType>($is: {
+                readonly 'duplicatesHandler': ASYNC.I.DuplicatesHandler
+                readonly 'handler': ASYNC.I.Dictionary<TType>
+            }) => ASYNC.I.Entries<TType>
         }
         
         
         export namespace C {
-            export type CreateUnsafeDictionaryBuilder<GType> = ($is: {
-                readonly 'handler': ASYNC.I.Dictionary<GType>
-            }) => ASYNC.I.Entries<GType>
+            export type CreateUnsafeDictionaryBuilder = <TType>($is: {
+                readonly 'handler': ASYNC.I.Dictionary<TType>
+            }) => ASYNC.I.Entries<TType>
         }
     }
 }
@@ -58,21 +58,21 @@ export namespace SYNC {
     
     export namespace I {
         
-        export type Add<GType> = ($: T.KeyValuePair<GType>, ) => void
+        export type Add<TType> = ($: T.KeyValuePair<TType>, ) => void
         
-        export type Push<GType> = ($: T.Type<GType>, ) => void
+        export type Push<TType> = ($: TType, ) => void
     }
     
     export namespace A {
         
         
         export namespace F {
-            export type BuildArray<GType> = ($c: ($i: SYNC.I.Push<GType>) => void) => T.Array<GType>
+            export type BuildArray = <TType>($c: ($i: SYNC.I.Push<TType>) => void) => T.Array<TType>
         }
         
         
         export namespace F {
-            export type BuildDictionary<GType> = ($c: ($i: SYNC.I.Add<GType>) => void) => T.Dictionary<GType>
+            export type BuildDictionary = <TType>($c: ($i: SYNC.I.Add<TType>) => void) => T.Dictionary<TType>
         }
     }
 }
