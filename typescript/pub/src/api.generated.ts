@@ -3,13 +3,22 @@ import * as pt from 'pareto-core-types'
 import * as g_common from "glo-pareto-common"
 import * as g_this from "./glossary"
 
+export namespace D {
+    
+    
+    
+    
+    
+    
+}
+
 export namespace A {
     
     export type buildArray = () => g_this.SYNC.A.F.BuildArray
     
     export type buildSafeDictionary = ($: g_this.T.DictionaryBuildStrategy, $se: {
         readonly 'onDuplicate': g_common.SYNC.I.String
-    }, ) => g_this.SYNC.A.F.BuildSafeDictionary
+    }) => g_this.SYNC.A.F.BuildSafeDictionary
     
     export type buildUnsafeDictionary = () => g_this.SYNC.A.F.BuildUnsafeDictionary
     
