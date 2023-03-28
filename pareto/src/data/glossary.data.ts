@@ -17,18 +17,21 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
     'imports': d({
         "common": imp({}),
     }),
-    'types': d({
-        "Array": parametrizedType({ "Type": null }, array(ref(typeParameter("Type")))),
-        "Dictionary": parametrizedType({ "Type": null }, dictionary(ref(typeParameter("Type")))),
-        "KeyValuePair": parametrizedType({ "Type": null }, group({
-            "key": member(string()),
-            "value": member(ref(typeParameter("Type"))),
-        })),
-        "DictionaryBuildStrategy": type(taggedUnion({
-            "ignore": group({}),
-            "overwrite": group({}),
-        })),
-    }),
+    'root': {
+        'namespaces': d({}),
+        'types': d({
+            "Array": parametrizedType({ "Type": null }, array(ref(typeParameter("Type")))),
+            "Dictionary": parametrizedType({ "Type": null }, dictionary(ref(typeParameter("Type")))),
+            "KeyValuePair": parametrizedType({ "Type": null }, group({
+                "key": member(string()),
+                "value": member(ref(typeParameter("Type"))),
+            })),
+            "DictionaryBuildStrategy": type(taggedUnion({
+                "ignore": group({}),
+                "overwrite": group({}),
+            })),
+        }),
+    },
     'asynchronous': {
         'interfaces': d({
             "Array": aInterface(aInterfaceMethod(typeReference("Array", { "Type": typeParameter("Type") })), { "Type": null }),
@@ -47,17 +50,17 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
             )),
         }),
         'algorithms': d({
-            "CreateArrayBuilder": constructor(aInterfaceReference("Elements", {"Type": typeParameter("Type")}), {
-                "handler": aInterfaceReference("Array", {"Type": typeParameter("Type")}),
-            }, {"Type": null}),
-            "CreateUnsafeDictionaryBuilder": constructor(aInterfaceReference("Entries", {"Type": typeParameter("Type")}), {
-                "handler": aInterfaceReference("Dictionary", {"Type": typeParameter("Type")}),
-            }, {"Type": null}),
-            "CreateSafeDictionaryBuilder": constructor(aInterfaceReference("Entries", {"Type": typeParameter("Type")}), {
-                "handler": aInterfaceReference("Dictionary", {"Type": typeParameter("Type")}),
+            "CreateArrayBuilder": constructor(aInterfaceReference("Elements", { "Type": typeParameter("Type") }), {
+                "handler": aInterfaceReference("Array", { "Type": typeParameter("Type") }),
+            }, { "Type": null }),
+            "CreateUnsafeDictionaryBuilder": constructor(aInterfaceReference("Entries", { "Type": typeParameter("Type") }), {
+                "handler": aInterfaceReference("Dictionary", { "Type": typeParameter("Type") }),
+            }, { "Type": null }),
+            "CreateSafeDictionaryBuilder": constructor(aInterfaceReference("Entries", { "Type": typeParameter("Type") }), {
+                "handler": aInterfaceReference("Dictionary", { "Type": typeParameter("Type") }),
                 "duplicatesHandler": aInterfaceReference("DuplicatesHandler"),
 
-            }, {"Type": null}),
+            }, { "Type": null }),
         }),
 
     },
@@ -68,9 +71,9 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
 
         }),
         'algorithms': d({
-            "BuildArray": sfunction(typeReference("Array", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Push", {"Type": typeParameter("Type")})), { "Type": null }),
-            "BuildUnsafeDictionary": sfunction(typeReference("Dictionary", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Add", {"Type": typeParameter("Type")})), { "Type": null }),
-            "BuildSafeDictionary": sfunction(typeReference("Dictionary", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Add", {"Type": typeParameter("Type")})), { "Type": null }),
+            "BuildArray": sfunction(typeReference("Array", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Push", { "Type": typeParameter("Type") })), { "Type": null }),
+            "BuildUnsafeDictionary": sfunction(typeReference("Dictionary", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Add", { "Type": typeParameter("Type") })), { "Type": null }),
+            "BuildSafeDictionary": sfunction(typeReference("Dictionary", { "Type": typeParameter("Type") }), inf(sInterfaceReference("Add", { "Type": typeParameter("Type") })), { "Type": null }),
         }),
     },
 
