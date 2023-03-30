@@ -32,24 +32,30 @@ export namespace ASYNC {
         
         
         export namespace C {
-            export type CreateArrayBuilder = <TType>($is: {
-                readonly 'handler': ASYNC.I.Array<TType>
-            }) => ASYNC.I.Elements<TType>
+            export type CreateArrayBuilder = {
+                'construct': <TType>($is: {
+                    readonly 'handler': ASYNC.I.Array<TType>
+                }) => ASYNC.I.Elements<TType>
+            }
         }
         
         
         export namespace C {
-            export type CreateSafeDictionaryBuilder = <TType>($is: {
-                readonly 'duplicatesHandler': ASYNC.I.DuplicatesHandler
-                readonly 'handler': ASYNC.I.Dictionary<TType>
-            }) => ASYNC.I.Entries<TType>
+            export type CreateSafeDictionaryBuilder = {
+                'construct': <TType>($is: {
+                    readonly 'duplicatesHandler': ASYNC.I.DuplicatesHandler
+                    readonly 'handler': ASYNC.I.Dictionary<TType>
+                }) => ASYNC.I.Entries<TType>
+            }
         }
         
         
         export namespace C {
-            export type CreateUnsafeDictionaryBuilder = <TType>($is: {
-                readonly 'handler': ASYNC.I.Dictionary<TType>
-            }) => ASYNC.I.Entries<TType>
+            export type CreateUnsafeDictionaryBuilder = {
+                'construct': <TType>($is: {
+                    readonly 'handler': ASYNC.I.Dictionary<TType>
+                }) => ASYNC.I.Entries<TType>
+            }
         }
     }
 }
