@@ -16,5 +16,9 @@ export const $: g_project.T.ModuleDefinition.api.root<pd.SourceLocation> = {
         "createUnsafeDictionaryBuilder": algorithm(constructor("this", {}, "CreateUnsafeDictionaryBuilder")),
         "createSafeDictionaryBuilder": algorithm(constructor("this", {}, "CreateSafeDictionaryBuilder"), {}, dependent(data("this", {}, "DictionaryBuildStrategy"), {}, {})),
         "createArrayBuilder": algorithm(constructor("this", {}, "CreateArrayBuilder")),
+
+
+        "createStringBuilder": algorithm(constructor("this", {}, "CreateStringBuilder"), {}, dependent(data("common", {}, "String"), {
+        }, {})),
     }),
 }

@@ -10,6 +10,7 @@ export namespace D {
     
     
     
+    
 }
 
 export namespace A {
@@ -26,6 +27,8 @@ export namespace A {
     
     export type createSafeDictionaryBuilder = ($: g_this.T.DictionaryBuildStrategy, ) => g_this.ASYNC.A.C.CreateSafeDictionaryBuilder
     
+    export type createStringBuilder = ($: g_common.T.String, ) => g_this.ASYNC.A.C.CreateStringBuilder
+    
     export type createUnsafeDictionaryBuilder = () => g_this.ASYNC.A.C.CreateUnsafeDictionaryBuilder
 }
 
@@ -35,5 +38,6 @@ export type API = {
     readonly 'buildUnsafeDictionary': A.buildUnsafeDictionary
     readonly 'createArrayBuilder': A.createArrayBuilder
     readonly 'createSafeDictionaryBuilder': A.createSafeDictionaryBuilder
+    readonly 'createStringBuilder': A.createStringBuilder
     readonly 'createUnsafeDictionaryBuilder': A.createUnsafeDictionaryBuilder
 }

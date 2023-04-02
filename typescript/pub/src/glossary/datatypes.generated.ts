@@ -56,4 +56,16 @@ export namespace T {
         readonly 'key': string
         readonly 'value': TType
     }
+    
+    export namespace String {
+        
+        export type end<TEndType> = TEndType
+        
+        export type _lstring<TEndType> = string
+    }
+    
+    export type String<TEndType> = {
+        readonly 'end': TEndType
+        readonly 'string': string
+    }
 }

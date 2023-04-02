@@ -26,6 +26,13 @@ export namespace ASYNC {
             'data': ($: T.KeyValuePair<TType>, ) => void
             'end': ($: TEndType, ) => void
         }
+        
+        export type StringConsumer<TEndType> = ($: T.String<TEndType>, ) => void
+        
+        export type StringStreamConsumer<TEndType> = {
+            'data': ($: g_common.T.String, ) => void
+            'end': ($: TEndType, ) => void
+        }
     }
     
     export namespace A {
@@ -46,6 +53,15 @@ export namespace ASYNC {
                     readonly 'duplicatesHandler': ASYNC.I.DuplicatesHandler
                     readonly 'handler': ASYNC.I.Dictionary<TEndType, TType>
                 }) => ASYNC.I.Entries<TEndType, TType>
+            }
+        }
+        
+        
+        export namespace C {
+            export type CreateStringBuilder = {
+                'construct': <TEndType>($is: {
+                    readonly 'handler': ASYNC.I.StringConsumer<TEndType>
+                }) => ASYNC.I.StringStreamConsumer<TEndType>
             }
         }
         

@@ -4,6 +4,7 @@ import { $$ as ibuildSafeDictionary } from "./implementations/buildSafeDictionar
 import { $$ as ibuildUnsafeDictionary } from "./implementations/buildUnsafeDictionary.native"
 import { $$ as icreateArrayBuilder } from "./implementations/createArrayBuilder.native"
 import { $$ as icreateSafeDictionaryBuilder } from "./implementations/createSafeDictionaryBuilder.native"
+import { $$ as icreateStringBuilder } from "./implementations/createStringBuilder.native"
 import { $$ as icreateUnsafeDictionaryBuilder } from "./implementations/createUnsafeDictionaryBuilder.native"
 
 export const $r: API = {
@@ -12,5 +13,6 @@ export const $r: API = {
     'buildUnsafeDictionary': ibuildUnsafeDictionary,
     'createArrayBuilder': icreateArrayBuilder,
     'createSafeDictionaryBuilder': icreateSafeDictionaryBuilder,
+    'createStringBuilder': icreateStringBuilder,
     'createUnsafeDictionaryBuilder': icreateUnsafeDictionaryBuilder,
 }

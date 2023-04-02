@@ -28,6 +28,10 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 "dictionary": member(ref(externalTypeReference("common", "Dictionary", { "Type": typeParameter("Type") }))),
                 "end": member(ref(typeParameter("EndType"))),
             })),
+            "String": parametrizedType({ "EndType": null }, group({
+                "string": member(string()),
+                "end": member(ref(typeParameter("EndType"))),
+            })),
             "KeyValuePair": parametrizedType({ "Type": null }, group({
                 "key": member(string()),
                 "value": member(ref(typeParameter("Type"))),
@@ -60,6 +64,11 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 aInterfaceMethod(externalTypeReference("common", "String")),
                 aInterfaceMethod(null),
             )),
+            "StringConsumer": aInterface(aInterfaceMethod(typeReference("String", { "EndType": typeParameter("EndType") })), { "EndType": null }),
+            "StringStreamConsumer": aInterface(streamconsumer(
+                aInterfaceMethod(externalTypeReference("common", "String")),
+                aInterfaceMethod(typeParameter("EndType")),
+            ), { "EndType": null }),
         }),
         'algorithms': d({
             "CreateArrayBuilder": constructor(aInterfaceReference("Elements", {
@@ -91,6 +100,9 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
                 "duplicatesHandler": aInterfaceReference("DuplicatesHandler"),
 
             }, { "Type": null, "EndType": null }),
+            "CreateStringBuilder": constructor(aInterfaceReference("StringStreamConsumer", { "EndType": typeParameter("EndType") }), {
+                "handler": aInterfaceReference("StringConsumer", { "EndType": typeParameter("EndType") }),
+            }, { "EndType": null }),
         }),
 
     },
