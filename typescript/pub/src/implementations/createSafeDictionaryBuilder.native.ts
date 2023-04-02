@@ -6,12 +6,12 @@ import { A } from "../api.generated"
 
 export const $$: A.createSafeDictionaryBuilder = ($c) => {
     return {
-        'construct': <GType>(
+        'construct': <GEndType, GType>(
             $is: {
                 'duplicatesHandler': g_this.ASYNC.I.DuplicatesHandler
-                'handler': g_this.ASYNC.I.Dictionary<GType>
+                'handler': g_this.ASYNC.I.Dictionary<GEndType, GType>
             }
-        ): g_this.ASYNC.I.Entries<GType> => {
+        ): g_this.ASYNC.I.Entries<GEndType, GType> => {
             const dict: { [key: string]: GType } = {}
             return {
                 'data': ($) => {
@@ -36,8 +36,11 @@ export const $$: A.createSafeDictionaryBuilder = ($c) => {
                         dict[$.key] = $.value
                     }
                 },
-                'end': () => {
-                    $is.handler(pi.wrapRawDictionary(dict))
+                'end': ($) => {
+                    $is.handler({
+                        'dictionary': pi.wrapRawDictionary(dict),
+                        'end': $,
+                    })
                     $is.duplicatesHandler.end()
                 }
             }

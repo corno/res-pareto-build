@@ -6,18 +6,21 @@ import { A } from "../api.generated"
 
 export const $$: A.createArrayBuilder = () => {
     return {
-        'construct': <GType>(
+        'construct': <GEndType, GType>(
             $is: {
-                handler: g_this.ASYNC.I.Array<GType>
+                handler: g_this.ASYNC.I.Array<GEndType, GType>
             }
-        ): g_this.ASYNC.I.Elements<GType> => {
+        ): g_this.ASYNC.I.Elements<GEndType, GType> => {
             const arr: GType[] = []
             return {
                 'data': ($) => {
                     arr.push($)
                 },
-                'end': () => {
-                    $is.handler(pi.wrapRawArray(arr))
+                'end': ($) => {
+                    $is.handler({
+                        'end': $,
+                        'array': pi.wrapRawArray(arr)
+                    })
                 }
             }
         }

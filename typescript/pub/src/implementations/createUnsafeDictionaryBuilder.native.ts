@@ -6,11 +6,11 @@ import { A } from "../api.generated"
 
 export const $$: A.createUnsafeDictionaryBuilder = () => {
     return {
-        'construct': <GType>(
+        'construct': <GEndType, GType>(
             $is: {
-                handler: g_this.ASYNC.I.Dictionary<GType>
+                handler: g_this.ASYNC.I.Dictionary<GEndType, GType>
             }
-        ): g_this.ASYNC.I.Entries<GType> => {
+        ): g_this.ASYNC.I.Entries<GEndType, GType> => {
             const dict: { [key: string]: GType } = {}
             return {
                 'data': ($) => {
@@ -19,8 +19,11 @@ export const $$: A.createUnsafeDictionaryBuilder = () => {
                     }
                     dict[$.key] = $.value
                 },
-                'end': () => {
-                    $is.handler(pi.wrapRawDictionary(dict))
+                'end': ($) => {
+                    $is.handler({
+                        'dictionary': pi.wrapRawDictionary(dict),
+                        'end': $
+                    })
                 }
             }
         }

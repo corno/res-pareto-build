@@ -8,17 +8,27 @@ export namespace T {
     
     export namespace Array {
         
-        export type A<TType> = TType
+        export type array<TEndType, TType> = g_common.T.Array<TType>
+        
+        export type end<TEndType, TType> = TEndType
     }
     
-    export type Array<TType> = pt.Array<TType>
+    export type Array<TEndType, TType> = {
+        readonly 'array': g_common.T.Array<TType>
+        readonly 'end': TEndType
+    }
     
     export namespace Dictionary {
         
-        export type D<TType> = TType
+        export type dictionary<TEndType, TType> = g_common.T.Dictionary<TType>
+        
+        export type end<TEndType, TType> = TEndType
     }
     
-    export type Dictionary<TType> = pt.Dictionary<TType>
+    export type Dictionary<TEndType, TType> = {
+        readonly 'dictionary': g_common.T.Dictionary<TType>
+        readonly 'end': TEndType
+    }
     
     export namespace DictionaryBuildStrategy {
         
