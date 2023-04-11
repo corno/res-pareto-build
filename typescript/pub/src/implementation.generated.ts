@@ -7,7 +7,7 @@ import { $$ as icreateSafeDictionaryBuilder } from "./implementations/createSafe
 import { $$ as icreateStringBuilder } from "./implementations/createStringBuilder.native"
 import { $$ as icreateUnsafeDictionaryBuilder } from "./implementations/createUnsafeDictionaryBuilder.native"
 
-export const $r: API = {
+export const $api: API = {
     'buildArray': ibuildArray,
     'buildSafeDictionary': ibuildSafeDictionary,
     'buildUnsafeDictionary': ibuildUnsafeDictionary,
