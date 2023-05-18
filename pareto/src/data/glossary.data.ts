@@ -4,7 +4,7 @@ import {
     constructor,
     aInterfaceMethod,
     aInterfaceReference,
-    array, dictionary, externalTypeReference, ref, typeParameter, group, imp, inf, member,
+    array, dictionary, externalTypeReference, ref, typeParameter, group, imp, sInf, member,
     sfunction,
     sInterfaceMethod, sInterfaceReference, streamconsumer, string, taggedUnion, type, typeReference, aInterface, sInterface, parametrizedType
 } from "lib-pareto-typescript-project/dist/submodules/glossary/shorthands"
@@ -13,9 +13,9 @@ import * as g_glossary from "lib-pareto-typescript-project/dist/submodules/gloss
 const d = pd.d
 
 export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
-    'parameters': d({}),
+    'glossary parameters':d({}),
     'imports': d({
-        "common": imp({}),
+        "common": imp(),
     }),
     'root': {
         'namespaces': d({}),
@@ -115,13 +115,13 @@ export const $: g_glossary.T.Glossary<pd.SourceLocation> = {
         'algorithms': d({
             "BuildArray": sfunction(externalTypeReference("common", "Array", {
                 "Type": typeParameter("Type"),
-            }), inf(sInterfaceReference("Push", { "Type": typeParameter("Type") })), { "Type": null }),
+            }), sInf(sInterfaceReference("Push", { "Type": typeParameter("Type") })), { "Type": null }),
             "BuildUnsafeDictionary": sfunction(externalTypeReference("common", "Dictionary", {
                 "Type": typeParameter("Type"),
-            }), inf(sInterfaceReference("Add", { "Type": typeParameter("Type") })), { "Type": null }),
+            }), sInf(sInterfaceReference("Add", { "Type": typeParameter("Type") })), { "Type": null }),
             "BuildSafeDictionary": sfunction(externalTypeReference("common", "Dictionary", {
                 "Type": typeParameter("Type"),
-            }), inf(sInterfaceReference("Add", { "Type": typeParameter("Type") })), { "Type": null }),
+            }), sInf(sInterfaceReference("Add", { "Type": typeParameter("Type") })), { "Type": null }),
         }),
     },
 
